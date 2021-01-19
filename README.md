@@ -1,5 +1,5 @@
 # Hisense-mqtt-keyfiles
-Some version of mqtt hisense require keys
+Some version of mqtt hisense smart TV require keys
 keyfiles attached.
 hi_keys.zip
 
