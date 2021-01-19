@@ -8,10 +8,10 @@ Extract **hi_keys.zip** in this repo.
 Download **mqtt explorer**.
 
 Authenticate with remoteNow on android device.  If you want your remote commands to have effect to the tv, its mac has to be authenticated.
-Mac address is sent with each mqtt command.
+Mac address is sent with each mqtt command.  Using the same mac address as your already authenticated android device (via remoteNow app) works.
 
 But you can listen to topics still **without** being authenticated.
-Using the same mac address as your already authenticated android device (via remoteNow app) works.
+
 
 Put **rcm_certchain.pem.cer** as **client certificate** in mqtt explorer
 and **rcm_pem_privkey.pkcs8** as **client key** in mqtt explorer
