@@ -12,8 +12,8 @@ Mac address is sent with each mqtt command.  Using the same mac address as your 
 
 But you can listen to topics still **without** being authenticated.
 
-
-Put **rcm_certchain.pem.cer** as **client certificate** in mqtt explorer
-and **rcm_pem_privkey.pkcs8** as **client key** in mqtt explorer
-server certificate ca was not required for me. Encryption and Validate cert do **not** need to be ticked.
+Under **ADVANCED** : **CERTIFICATES**
+Attach **rcm_certchain.pem.cer** as **CLIENT CERTIFICATE** in mqtt explorer
+and **rcm_pem_privkey.pkcs8** as **CLIENT KEY** in mqtt explorer
+**SERVER CERTIFICATE(CA)** was not required for me. Encryption and Validate cert do **not** need to be ticked.
 You should be able to connect now.
