@@ -1,7 +1,5 @@
 # Hisense-mqtt-keyfiles
 Some version of mqtt hisense smart TV require keys
-keyfiles attached.
-hi_keys.zip
 
 Just incase this helps anyone on certain models of HS tv. u7qf eg. Which would not let me connect.
 
