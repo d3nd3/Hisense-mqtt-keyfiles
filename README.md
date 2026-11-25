@@ -1,3 +1,5 @@
+Prefer pictures? Start with **[HUMANS.md](HUMANS.md)**.
+
 # Hisense-mqtt-keyfiles
 Some version of mqtt hisense smart TV require keys
 

@@ -1,0 +1,50 @@
+# Hisense-mqtt-keyfiles — two generic PEMs that unlock a TV's local MQTT broker
+# Strokes only (no fills) so the light and dark diagram themes both stay readable.
+direction: right
+grid-columns: 2
+grid-rows: 2
+
+classes: {
+  entry: {style: {stroke: "#4f9cf9"; stroke-width: 2}}
+  core: {style: {stroke: "#9a7cf9"}}
+  state: {style: {stroke: "#e0a44a"}}
+  store: {style: {stroke: "#e0a44a"; stroke-width: 2}}
+  ext: {style: {stroke: "#6ac48a"; stroke-dash: 4}}
+}
+
+entry: Entry points {
+  direction: down
+  explorer: "MQTT Explorer · Advanced, then Certificates, where the two PEMs are attached" {class: entry}
+  remote: "remoteNow on Android · the pairing that gives the TV a MAC it trusts" {class: entry}
+  extract: "hi_keys.zip · unzip beside the README, two files, nothing to build or run" {class: entry}
+  docs: "README · the whole procedure is six steps of GUI clicking" {class: entry}
+}
+
+external: External {
+  direction: down
+  tv: "Hisense u7qf · local MQTT broker, on some models it rejects uncertified clients" {class: ext}
+  ca: "RemoteCA · issuer of the client cert, not shipped here and not requested" {class: ext}
+  app: "remoteNow app · the vendor client these files were extracted from" {class: ext}
+  open: "models without the check · same broker, anonymous client accepted" {class: ext}
+}
+
+core: Core {
+  direction: down
+  tls: "connect · TLS to the TV with client cert remoteclientmobile and its RSA key" {class: core}
+  skip: "two unticked boxes · encryption and validate certificate both left off" {class: core}
+  mac: "command auth · every published message carries the paired phone's MAC" {class: core}
+  spoof: "spoof · send the MAC of the already-paired phone so commands take effect" {class: core}
+  read: "listen only · subscriptions work with no authenticated MAC at all" {class: core}
+}
+
+state: State {
+  direction: down
+  cert: "rcm_certchain_pem.cer · one cert, CN=remoteclientmobile, O=hh, 2018 to 2043" {class: store; shape: cylinder}
+  key: "rcm_pem_privkey.pkcs8 · RSA 2048 private key, no passphrase" {class: store; shape: cylinder}
+  macaddr: "the phone's MAC · the real credential, held by remoteNow, not in this repo" {class: state}
+  shared: "identical for every owner · nothing per-device to rotate or revoke" {class: state}
+}
+
+entry -> core
+core -> state
+core -> external
